@@ -1,0 +1,31 @@
+<app-nav></app-nav>
+<div>
+    <agm-map [latitude]="lat" [longitude]="lng" [zoom]=15 [scrollwheel]="false"></agm-map>
+</div>
+
+<div class="container">
+<!-- <div class="col-md-9 col-md-offset-3"> -->
+    <div id="criteria-subpanel" class="col-md-4 col-sm-1 well">
+      <!-- <div id="criteria-inside"> -->
+  <div class="form-group col-md-5 col-sm-6">
+    <input type="text" class="form-control" #city value="bangalore" placeholder="City" />
+  </div>
+  <div class="form-group col-md-5 col-sm-6">
+    <input type="text" class="form-control" #cuisine value="italian" placeholder="Cuisine" />
+  </div>
+
+  <div class="col-md-1 col-sm-12">
+    <button class="btn btn-primary fa fa-search hamburger" (click)="toggleMenu()" disabled="{{disabled}}" (click)="fetchRestaurants(city.value, cuisine.value, 'search')">
+    </button>
+  </div>
+        <div class="form-group col-md-12">
+      <app-display-restaurants [@slideInOut]="menuState" [restaurantsData]="restaurants"></app-display-restaurants>
+    </div>
+  <!-- </div> -->
+  </div><!--end of criteria-subpanel-->
+</div><!--end of container-->
+
+<!-- <button (click)="toggleMenu()" class="hamburger">
+  <span>toggle menu</span>
+</button> -->
+
